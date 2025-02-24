@@ -40,4 +40,4 @@ Este projeto permite compreender quais fatores mais impactam a classificação d
 ---
 
  **Quer contribuir?**  
-Sinta-se à vontade para abrir uma issue ou um pull request! 🚀  
+Sinta-se à vontade para abrir uma issue ou um pull request! 
