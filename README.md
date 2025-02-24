@@ -1,9 +1,9 @@
 # 🍷 Projeto de Classificação de Vinhos  
 
-## 📌 Objetivo  
+## Objetivo  
 Este projeto tem como objetivo construir um modelo de Machine Learning capaz de classificar vinhos com base em suas características físico-químicas. Utilizamos técnicas de aprendizado supervisionado e otimização de hiperparâmetros com `GridSearchCV`, buscando encontrar os melhores parâmetros para maximizar o desempenho do modelo.  
 
-## 🏗️ Fluxo do Projeto  
+## Fluxo do Projeto  
 
 ### 🔹 1. Pré-processamento dos Dados  
 - Carregamento e análise exploratória dos dados  
@@ -29,7 +29,7 @@ Este projeto tem como objetivo construir um modelo de Machine Learning capaz de 
 - Extração dos coeficientes do modelo para identificar quais atributos mais influenciam a classificação do vinho  
 - Geração de um gráfico de barras horizontais para visualização da importância dos atributos  
 
-## 📊 Saída do Modelo  
+## Saída do Modelo  
 - 📑 **Tabela de métricas por iteração do K-Fold**  
 - 📈 **Estatísticas finais das métricas no conjunto de teste**  
 - ✅ **Avaliação qualitativa da performance do modelo**  
@@ -39,5 +39,5 @@ Este projeto permite compreender quais fatores mais impactam a classificação d
 
 ---
 
-💡 **Quer contribuir?**  
+ **Quer contribuir?**  
 Sinta-se à vontade para abrir uma issue ou um pull request! 🚀  
