@@ -10704,29 +10704,24 @@ Total de pontos do modelo ==&gt; 15620
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="An%C3%A1lise-da-Influ%C3%AAncia-das-Features-na-Qualidade-do-Vinho">Análise da Influência das Features na Qualidade do Vinho<a class="anchor-link" href="#An%C3%A1lise-da-Influ%C3%AAncia-das-Features-na-Qualidade-do-Vinho">¶</a></h1><h2 id="Interpreta%C3%A7%C3%A3o-dos-Resultados">Interpretação dos Resultados<a class="anchor-link" href="#Interpreta%C3%A7%C3%A3o-dos-Resultados">¶</a></h2><p>Após a criação dos modelos de <strong>Regressão Logística</strong>, <strong>SVC (Support Vector Classifier)</strong> e <strong>Decision Tree</strong>, a análise da importância das features mostrou que:</p>
+<h1 id="An%C3%A1lise-da-Influ%C3%AAncia-das-Features-na-Qualidade-do-Vinho">Análise da Influência das Features na Qualidade do Vinho<a class="anchor-link" href="#An%C3%A1lise-da-Influ%C3%AAncia-das-Features-na-Qualidade-do-Vinho">¶</a></h1><h2 id="Interpreta%C3%A7%C3%A3o-dos-Resultados">Interpretação dos Resultados<a class="anchor-link" href="#Interpreta%C3%A7%C3%A3o-dos-Resultados">¶</a></h2><p>Após a criação dos modelos <strong>Regressão Logística</strong>, <strong>SVM</strong> e <strong>Decision Tree</strong>, analisamos a importância das variáveis e encontramos os seguintes padrões:</p>
 <ul>
-<li><strong>Densidade</strong> e <strong>Volatilidade Ácida</strong> influenciam positivamente na qualidade do vinho.</li>
-<li><strong>Teor Alcoólico</strong> e <strong>Açúcar Residual</strong> influenciam negativamente.</li>
+<li><strong>Regressão Logística</strong> e <strong>SVM</strong> identificaram <strong>Densidade</strong> e <strong>Acidez Volátil</strong> como as variáveis mais relevantes, com coeficientes próximos de <strong>1</strong>, indicando que valores mais altos dessas features aumentam a chance de um vinho ser classificado como de <strong>boa qualidade</strong>.</li>
+<li>Essas mesmas técnicas atribuíram coeficientes próximos de <strong>-1</strong> para <strong>Teor Alcoólico</strong> e <strong>Açúcar Residual</strong>, sugerindo que valores elevados dessas variáveis aumentam a probabilidade de um vinho ser classificado como de <strong>baixa qualidade</strong>.</li>
+<li>Já a <strong>Decision Tree</strong> apresentou uma distribuição de importância das variáveis diferente, atribuindo maior peso a outros fatores, o que sugere que esse modelo pode estar capturando padrões específicos da base de dados de forma distinta.</li>
 </ul>
-<p>Essa interpretação faz sentido e é coerente com estudos sobre enologia, mas há alguns pontos importantes a considerar:</p>
-<h3 id="Poss%C3%ADveis-Explica%C3%A7%C3%B5es">Possíveis Explicações<a class="anchor-link" href="#Poss%C3%ADveis-Explica%C3%A7%C3%B5es">¶</a></h3><ol>
-<li><p><strong>Densidade e Volatilidade Ácida indicam Qualidade Boa?</strong></p>
-<ul>
-<li>A <strong>densidade</strong> está relacionada à composição química do vinho, incluindo teor de álcool e açúcar. Vinhos de alta qualidade tendem a ter uma densidade equilibrada.</li>
-<li>A <strong>volatilidade ácida</strong> está ligada a ácidos voláteis (como ácido acético), que em excesso podem indicar defeitos. No entanto, níveis controlados podem contribuir positivamente para a complexidade aromática.</li>
+<h2 id="Principais-Insights">Principais Insights<a class="anchor-link" href="#Principais-Insights">¶</a></h2><h3 id="1.-Por-que-Densidade-e-Acidez-Vol%C3%A1til-est%C3%A3o-associadas-%C3%A0-melhor-qualidade?">1. Por que Densidade e Acidez Volátil estão associadas à melhor qualidade?<a class="anchor-link" href="#1.-Por-que-Densidade-e-Acidez-Vol%C3%A1til-est%C3%A3o-associadas-%C3%A0-melhor-qualidade?">¶</a></h3><ul>
+<li>A <strong>densidade</strong> reflete a concentração de compostos dissolvidos no vinho. Em vinhos de alta qualidade, pode estar associada a um equilíbrio adequado entre álcool, taninos e açúcares.</li>
+<li>A <strong>acidez volátil</strong> está relacionada à presença de ácidos como o acético. Pequenas quantidades podem contribuir para a complexidade aromática, tornando o vinho mais interessante.</li>
 </ul>
-</li>
-<li><p><strong>Teor Alcoólico e Açúcar Residual indicam Qualidade Ruim?</strong></p>
-<ul>
-<li>O <strong>teor alcoólico</strong> geralmente está associado a vinhos de melhor qualidade, pois afeta a estrutura e o equilíbrio da bebida. Se o modelo indicou influência negativa, pode ser devido à interação com outras variáveis.</li>
-<li>O <strong>açúcar residual</strong> pode estar relacionado a vinhos doces, que nem sempre são bem avaliados dependendo do perfil dos avaliadores e do contexto do dataset utilizado.</li>
+<h3 id="2.-Por-que-Teor-Alco%C3%B3lico-e-A%C3%A7%C3%BAcar-Residual-est%C3%A3o-associadas-%C3%A0-menor-qualidade?">2. Por que Teor Alcoólico e Açúcar Residual estão associadas à menor qualidade?<a class="anchor-link" href="#2.-Por-que-Teor-Alco%C3%B3lico-e-A%C3%A7%C3%BAcar-Residual-est%C3%A3o-associadas-%C3%A0-menor-qualidade?">¶</a></h3><ul>
+<li>O <strong>teor alcoólico</strong>, normalmente um fator positivo, pode estar correlacionado negativamente dependendo da base de dados. Se vinhos de menor qualidade tiverem um teor alcoólico desbalanceado, o modelo pode ter identificado essa relação.</li>
+<li>O <strong>açúcar residual</strong> pode indicar vinhos mais doces, que nem sempre são bem avaliados dependendo do perfil dos avaliadores e do contexto do dataset. Em vinhos secos, um excesso de açúcar pode sugerir problemas na fermentação.</li>
 </ul>
-</li>
-</ol>
-<h3 id="Poss%C3%ADveis-Problemas-no-Modelo">Possíveis Problemas no Modelo<a class="anchor-link" href="#Poss%C3%ADveis-Problemas-no-Modelo">¶</a></h3><ul>
-<li>O <strong>modelo pode estar capturando correlações estatísticas e não necessariamente causalidade</strong>. Ou seja, pode haver efeitos indiretos entre as variáveis.</li>
-<li>O dataset utilizado pode ter um <strong>viés</strong>. Por exemplo, se contém mais vinhos de baixa qualidade com alto teor alcoólico, o modelo pode ter aprendido essa associação errada.</li>
+<h2 id="Considera%C3%A7%C3%B5es-sobre-o-Modelo">Considerações sobre o Modelo<a class="anchor-link" href="#Considera%C3%A7%C3%B5es-sobre-o-Modelo">¶</a></h2><ul>
+<li><strong>Diferenças entre os modelos</strong>: A <strong>Regressão Logística</strong> e o <strong>SVM</strong> capturaram padrões similares, destacando as mesmas variáveis como mais influentes. No entanto, a <strong>Decision Tree</strong> apresentou um comportamento diferente, sugerindo que pode estar mais sensível a interações não lineares ou a características específicas do dataset.</li>
+<li><strong>Correlação não implica causalidade</strong>: os modelos identificam padrões estatísticos, mas isso não significa que essas variáveis sejam as únicas responsáveis pela qualidade do vinho.</li>
+<li><strong>Possível viés no dataset</strong>: se há predominância de vinhos de baixa qualidade com alto teor alcoólico, por exemplo, o modelo pode reforçar essa associação sem que ela seja universalmente válida.</li>
 </ul>
 </div>
 </div>
@@ -10781,7 +10776,7 @@ Total de pontos do modelo ==&gt; 15620
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Resultado-da-An%C3%A1lise">Resultado da Análise<a class="anchor-link" href="#Resultado-da-An%C3%A1lise">¶</a></h1><h2 id="Escolha-do-Melhor-Modelo">Escolha do Melhor Modelo<a class="anchor-link" href="#Escolha-do-Melhor-Modelo">¶</a></h2><p>Com base na <strong>Curva ROC, AUC e outras métricas estatísticas</strong>, a <strong>Regressão Logística</strong> apresentou o melhor desempenho global, com um <strong>AUC de 0,7922</strong>. No entanto, isso pode não refletir necessariamente a melhor escolha para o negócio. É fundamental avaliar marcadores específicos para ajustar os modelos de forma a maximizar o lucro ou obter o melhor resultado prático.</p>
+<h1 id="Resultado-da-An%C3%A1lise">Resultado da Análise<a class="anchor-link" href="#Resultado-da-An%C3%A1lise">¶</a></h1><h2 id="Escolha-do-Melhor-Modelo">Escolha do Melhor Modelo<a class="anchor-link" href="#Escolha-do-Melhor-Modelo">¶</a></h2><p>Com base na <strong>Curva ROC, AUC e outras métricas estatísticas</strong>, a <strong>Regressão Logística</strong> foi o modelo escolhido pois apresentou o melhor desempenho global, com um <strong>AUC de 0,7922</strong>. No entanto, isso pode não refletir necessariamente a melhor escolha para o negócio. É fundamental avaliar marcadores específicos para ajustar os modelos de forma a maximizar o lucro ou obter o melhor resultado prático.</p>
 <p>Para ilustrar melhor essa análise, foi criada uma função para calcular um <strong>"prejuízo"</strong> associado a classificações incorretas, considerando os seguintes critérios:</p>
 <ul>
 <li><strong>Falso Negativo (0 classificado como 1):</strong> -60.00 pontos</li>
@@ -10819,7 +10814,7 @@ Total de pontos do modelo ==&gt; 15620
 <p>O <strong>SVM</strong> apresentou um AUC <strong>ligeiramente inferior (0,7890)</strong>, mas ainda assim competitivo, o que indica que também pode ser uma alternativa viável.</p>
 <p>Já a <strong>Árvore de Decisão</strong>, apesar de obter a <strong>maior pontuação na regra de negócio</strong>, teve o menor AUC <strong>(0,7851)</strong> e maior variação nos testes com K-Folds, sugerindo um possível <strong>overfitting</strong> nos dados de treino.</p>
 <hr/>
-<h2 id="Compara%C3%A7%C3%A3o-das-M%C3%A9tricas-no-Conjunto-de-Teste">Comparação das Métricas no Conjunto de Teste<a class="anchor-link" href="#Compara%C3%A7%C3%A3o-das-M%C3%A9tricas-no-Conjunto-de-Teste">¶</a></h2><table>
+<h2 id="Compara%C3%A7%C3%A3o-das-M%C3%A9tricas-no-Conjunto-de-Teste-da-%C3%A1rvore-de-decis%C3%A3o">Comparação das Métricas no Conjunto de Teste da árvore de decisão<a class="anchor-link" href="#Compara%C3%A7%C3%A3o-das-M%C3%A9tricas-no-Conjunto-de-Teste-da-%C3%A1rvore-de-decis%C3%A3o">¶</a></h2><table>
 <thead>
 <tr>
 <th>Métrica</th>
@@ -10857,7 +10852,7 @@ Total de pontos do modelo ==&gt; 15620
 </tr>
 </tbody>
 </table>
-<h3 id="Estat%C3%ADsticas-Finais-das-M%C3%A9tricas">Estatísticas Finais das Métricas<a class="anchor-link" href="#Estat%C3%ADsticas-Finais-das-M%C3%A9tricas">¶</a></h3><table>
+<h3 id="Estat%C3%ADsticas-Finais-das-M%C3%A9tricas-da-%C3%A1rvore-de-decis%C3%A3o">Estatísticas Finais das Métricas da árvore de decisão<a class="anchor-link" href="#Estat%C3%ADsticas-Finais-das-M%C3%A9tricas-da-%C3%A1rvore-de-decis%C3%A3o">¶</a></h3><table>
 <thead>
 <tr>
 <th>Métrica</th>
@@ -10893,7 +10888,7 @@ Total de pontos do modelo ==&gt; 15620
 <p>Os principais fatores identificados nos modelos foram:</p>
 <ul>
 <li><strong>Regressão Logística e SVM:</strong> Indicaram que <strong>Densidade e Volatilidade Ácida</strong> influenciam positivamente na classificação de vinhos de alta qualidade. Em contrapartida, <strong>Teor Alcoólico e Açúcar Residual</strong> mostraram correlações negativas, ou seja, <strong>valores elevados dessas variáveis tendem a indicar vinhos de menor qualidade</strong>.</li>
-<li><strong>Árvore de Decisão:</strong> Priorizou <strong>Teor Alcoólico, Volatilidade Ácida e Dióxido de Enxofre Livre</strong>, <strong>mas não considerou a </strong>Densidade** como algo importante, sendo que, os outros dois modelos apontaram como essencial para a decisão positiva<strong>. Isso pode indicar que a </strong>Árvore de Decisão não capturou corretamente certos padrões dos dados**, impactando sua capacidade de generalização.</li>
+<li><strong>Árvore de Decisão:</strong> Priorizou <strong>Teor Alcoólico, Volatilidade Ácida e Dióxido de Enxofre Livre</strong>, mas não considerou a <strong>Densidade</strong> como algo importante, sendo que, os outros dois modelos apontaram como essencial para a decisão positiva<strong>. Isso pode indicar que a </strong>Árvore de Decisão** não capturou corretamente certos padrões dos dados, impactando sua capacidade de generalização.</li>
 </ul>
 <p>Dessa forma, concluímos que <strong>a Regra de Negócio e as Métricas Estatísticas devem ser avaliadas conjuntamente</strong> para garantir que o modelo escolhido traga o <strong>melhor resultado real para o negócio</strong>.</p>
 </div>
